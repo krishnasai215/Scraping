@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 # Constants
 DB_PATH = "knowledge_base.db"
-SIMILARITY_THRESHOLD = 0.68  # Lowered threshold for better recall
+SIMILARITY_THRESHOLD = 0.4  # Lowered threshold for better recall
 MAX_RESULTS = 10  # Increased to get more context
 load_dotenv()
 MAX_CONTEXT_CHUNKS = 4  # Increased number of chunks per source
@@ -596,7 +596,7 @@ def parse_llm_response(response):
         }
 
 # Define API routes
-@app.post("/query")
+@app.post("/api/")
 async def query_knowledge_base(request: QueryRequest):
     try:
         # Log the incoming request
